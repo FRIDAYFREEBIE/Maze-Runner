@@ -4,62 +4,72 @@ using UnityEngine;
 // AI를 사용하니 확실히 작업 속도가 눈에 띄게 빨라졌다.
 // 잡다한 코드는 작업 효율을 생각해보면 AI에게 맡기는게 더 나은 것 같다.
 
-[ExecuteAlways]
 public class GridGeneratorDebugger : MonoBehaviour
 {
   [Header("Target")]
-  public GridGenerator targetGen;
+  public MazeGenerator targetGen;   // 🔹 MazeGenerator로 변경
 
   [Header("Toggles")]
-  public bool drawGridLines = true;
+  public bool drawMazeWalls = true;
   public bool drawCellCenters = true;
 
   [Header("Style")]
-  public Color gridColor = new Color(0f, 1f, 0f, 1f);
+  public Color wallColor = Color.green;
   public Color centerColor = Color.red;
   [Min(0f)] public float centerRadius = 0.05f;
 
   void OnDrawGizmos()
   {
-    if(targetGen == null) return;
+    if (targetGen == null) return;
+    if (targetGen.gridGenerator == null) return;
+    if (targetGen.gridGenerator.Cells == null) return; // 🔹 추가
 
-    int rows = targetGen.Rows;
-    int cols = targetGen.Cols;
-    float cellSize = targetGen.CellSize;
-    Vector3 origin = targetGen.OriginPos;
+    int rows = targetGen.gridGenerator.Rows;
+    int cols = targetGen.gridGenerator.Cols;
+    float cellSize = targetGen.gridGenerator.CellSize;
+    Vector3 origin = targetGen.gridGenerator.OriginPos;
 
-    if(rows <= 0 || cols <= 0 || cellSize <= 0f) return;
+    if (rows <= 0 || cols <= 0 || cellSize <= 0f) return;
 
     float width = cols * cellSize;
     float height = rows * cellSize;
 
     Vector3 min = origin - new Vector3(width, 0f, height) * 0.5f;
 
-    if(drawGridLines)
+    // 🔹 미로 벽 상태 표시
+    if (drawMazeWalls)
     {
-      Gizmos.color = gridColor;
+      Gizmos.color = wallColor;
 
-      for(int r = 0; r <= rows; r++)
+      for (int r = 0; r < rows; r++)
       {
-        Vector3 a = min + new Vector3(0f, 0f, r * cellSize);
-        Vector3 b = min + new Vector3(width, 0f, r * cellSize);
-        Gizmos.DrawLine(a, b);
-      }
+        for (int c = 0; c < cols; c++)
+        {
+          Cell cell = targetGen.gridGenerator.Cells[r, c];
+          if (cell == null) continue;
 
-      for(int c = 0; c <= cols; c++)
-      {
-        Vector3 a = min + new Vector3(c * cellSize, 0f, 0f);
-        Vector3 b = min + new Vector3(c * cellSize, 0f, height);
-        Gizmos.DrawLine(a, b);
+          Vector3 cellPos = min + new Vector3(c * cellSize, 0f, r * cellSize);
+
+          if (cell.north)
+            Gizmos.DrawLine(cellPos, cellPos + new Vector3(cellSize, 0f, 0f));
+          if (cell.west)
+            Gizmos.DrawLine(cellPos, cellPos + new Vector3(0f, 0f, cellSize));
+          if (r == rows - 1 && cell.south)
+            Gizmos.DrawLine(cellPos + new Vector3(0f, 0f, cellSize),
+                            cellPos + new Vector3(cellSize, 0f, cellSize));
+          if (c == cols - 1 && cell.east)
+            Gizmos.DrawLine(cellPos + new Vector3(cellSize, 0f, 0f),
+                            cellPos + new Vector3(cellSize, 0f, cellSize));
+        }
       }
     }
 
-    if(drawCellCenters && targetGen.Cells != null)
+    if (drawCellCenters && targetGen.gridGenerator.Cells != null)
     {
       Gizmos.color = centerColor;
-      foreach(var cell in targetGen.Cells)
+      foreach (var cell in targetGen.gridGenerator.Cells)
       {
-        if(cell == null) continue;
+        if (cell == null) continue;
         Gizmos.DrawSphere(cell.worldPos, Mathf.Max(0f, centerRadius));
       }
     }

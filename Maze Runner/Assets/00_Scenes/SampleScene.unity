@@ -377,6 +377,56 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &1606032070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606032072}
+  - component: {fileID: 1606032071}
+  m_Layer: 0
+  m_Name: MazeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1606032071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606032070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371dc9923dc99ff4892b947a22fcbf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridGenerator: {fileID: 2104170764}
+  inRow: 0
+  inCol: 0
+  outRow: 14
+  outCol: 14
+  generateOnStart: 1
+--- !u!4 &1606032072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606032070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104170761
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,10 +472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d91a3b383535e45822bf2768df5b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGen: {fileID: 2104170764}
-  drawGridLines: 1
+  targetGen: {fileID: 1606032071}
+  drawMazeWalls: 1
   drawCellCenters: 1
-  gridColor: {r: 0, g: 1, b: 0, a: 1}
+  wallColor: {r: 0, g: 1, b: 0, a: 1}
   centerColor: {r: 1, g: 0, b: 0, a: 1}
   centerRadius: 0.05
 --- !u!114 &2104170764
@@ -440,10 +490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d81a05cb9e154488672fcb7899f1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 10
-  cols: 10
-  cellSize: 1
+  rows: 15
+  cols: 15
   originPos: {x: 0, y: 0, z: 0}
+  cellSize: 1.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -451,3 +501,4 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 2104170762}
+  - {fileID: 1606032072}
