@@ -17,7 +17,7 @@ public class MazeBuilder : MonoBehaviour
   [SerializeField] private int outCol = 14;
 
   // 입구 셀의 벽을 엶
-  public void OpenEntranceAndExit()
+  protected void OpenEntranceAndExit()
   {
     // 입구
     if (inRow == 0) gridGenerator.Cells[inRow, inCol].north = false;
@@ -33,7 +33,7 @@ public class MazeBuilder : MonoBehaviour
   }
 
   // 셀에서 열 벽(미방문 셀로 가는 길)을 반환
-  public List<(int fromR, int fromC, int toR, int toC)> GetCandidateWalls(int row, int col)
+  protected List<(int fromR, int fromC, int toR, int toC)> GetCandidateWalls(int row, int col)
   {
     List<(int, int, int, int)> candidates = new();
 
@@ -57,7 +57,7 @@ public class MazeBuilder : MonoBehaviour
   }
 
   // 두 셀 사이의 벽을 제거
-  public void RemoveWallBetween(Cell a, Cell b)
+  protected void RemoveWallBetween(Cell a, Cell b)
   {
     // 같은 행 일 때
     if (a.r == b.r)
@@ -75,7 +75,7 @@ public class MazeBuilder : MonoBehaviour
   }
 
   // 프림 알고리즘으로 미로 생성
-  public void Prim()
+  protected void Prim()
   {
     // 입구와 출구를 열어놓음
     OpenEntranceAndExit();
