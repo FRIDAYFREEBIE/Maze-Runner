@@ -11,6 +11,7 @@ public class MazeGenerator : MazeBuilder
     {
       gridGenerator.CreateGrid();
       Prim();
+      mazeVisualizer.StartBuildAnimation();
     }
   }
 }

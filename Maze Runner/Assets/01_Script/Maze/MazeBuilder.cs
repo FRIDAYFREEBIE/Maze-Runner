@@ -4,8 +4,13 @@ using UnityEngine;
 public class MazeBuilder : MonoBehaviour
 {
   // 그리드 생성기
-  [Header("GridGenerator")]
+  [Header("Grid Generator")]
   public GridGenerator gridGenerator;
+
+  // 
+  [Header("Maze Visualizer")]
+  public MazeVisualizer mazeVisualizer;
+
   // 입구 좌표
   [Header("Entrance location")]
   [SerializeField] private int inRow = 0;
@@ -77,11 +82,8 @@ public class MazeBuilder : MonoBehaviour
   // 프림 알고리즘으로 미로 생성
   protected void Prim()
   {
-    // 입구와 출구를 열어놓음
-    OpenEntranceAndExit();
-
     // 입구 방문 표시
-    Cell startCell = gridGenerator.Cells[inCol, inRow];
+    Cell startCell = gridGenerator.Cells[inRow, inCol];
     startCell.Visit();
 
     // 인접 벽 리스트
@@ -110,5 +112,8 @@ public class MazeBuilder : MonoBehaviour
       // 새로 방문한 셀에서 나온 벽들을 추가
       frontier.AddRange(GetCandidateWalls(toCell.r, toCell.c));
     }
+
+    // 입구와 출구를 마지막에 열어줌
+    OpenEntranceAndExit();
   }
 }
