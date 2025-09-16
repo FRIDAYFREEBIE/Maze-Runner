@@ -44,7 +44,6 @@ public class MazeVisualizer : MonoBehaviour
         var cell = gridGenerator.Cells[r, c];
         Vector3 cellPos = min + new Vector3(c * cellSize, 0f, r * cellSize);
 
-        // 기즈모와 동일한 중앙 좌표 계산
         if (cell.north) // 위쪽(가로)
         {
           Vector3 center = cellPos + new Vector3(cellSize * 0.5f, 0f, 0f);
@@ -72,18 +71,15 @@ public class MazeVisualizer : MonoBehaviour
 
     foreach (var w in wallData)
     {
-      // 회전은 항상 Identity
       GameObject wall = Instantiate(wallPrefab, w.pos, Quaternion.identity, transform);
 
-      // 방향은 스케일로만 결정
-      if (w.isHorizontal) // 가로(북/남)
+      if (w.isHorizontal)
         wall.transform.localScale = new Vector3(cellSize, wall.transform.localScale.y, wallThickness);
-      else                // 세로(동/서)
+      else
         wall.transform.localScale = new Vector3(wallThickness, wall.transform.localScale.y, cellSize);
 
       yield return new WaitForSeconds(delay);
     }
   }
-
-
 }
+
