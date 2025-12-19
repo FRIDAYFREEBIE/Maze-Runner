@@ -25,5 +25,6 @@
 ---
 
 ## 📄 프로젝트 자료
+[티스토리로 이동](https://fridayfreebie.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Maze%20Runner%20%28Unity%29)
 
 ---
