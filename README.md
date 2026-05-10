@@ -1,30 +1,69 @@
 # Maze Runner
 
-### 🎮 첫번째 토이 프로젝트
+### 🎮 First Toy Project
 
 ---
 
-## 📌 **프로젝트 개요**
-- **게임 장르**: 3D 탑뷰 탈출
-- **개발 기간**: 2025-09-04 ~
-- **팀 구성**: 1인 개발
-- **목표**: 게임을 완성하고 개발 과정을 [블로그](https://fridayfreebie.tistory.com/category/%ED%86%A0%EC%9D%B4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에 기록
+## 📌 Project Overview
+- **Game Genre**: 3D Top-Down Escape Game
+- **Development Period**: 2025-09-04 ~ (Development Suspended)
+- **Team Size**: Solo Development
+- **Goal**: To complete the game and document the development process on my [Blog](https://fridayfreebie.tistory.com/category/%ED%86%A0%EC%9D%B4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
 
 ---
 
-## 🔑 **주요 기술 사항**
-- **Unity**: 게임 엔진
-- **C#**: 프로그래밍 언어
-- **미로 생성 알고리즘**
-- **최단 경로 탐색 알고리즘**
+## 🔑 Key Technologies
+
+- **Unity**
+  - Game engine used for 3D top-down gameplay implementation
+  - Player movement and camera system implementation
+
+- **C#**
+  - Core gameplay logic and system implementation
+  - Maze generation and pathfinding logic implementation
+
+- **Prim’s Algorithm**
+  - Implemented procedural maze generation using Prim’s Algorithm
+  - Randomly generated connected paths while maintaining maze structure
+  - Generated unique maze layouts each time the game starts
+
+- **Shortest Pathfinding Algorithm**
+  - Implemented shortest path calculation within the maze
+  - Used for route analysis and escape path logic
+
+- **Procedural Generation**
+  - Dynamically generated maze maps during runtime
+  - Improved replayability with randomized level layouts
+
+- **3D Top-Down System**
+  - Implemented top-down camera perspective
+  - Designed player navigation within a 3D maze environment
 
 ---
 
-## 🤔 **느낀점과 배운점**
+## 🤔 What I Learned
+
+- Learned how procedural generation algorithms can be applied to game development.
+- Gained experience implementing Prim’s Algorithm for maze generation.
+- Improved understanding of graph-based pathfinding systems and maze structures.
+- Learned how to separate map generation logic from gameplay systems for better project structure.
 
 ---
 
-## 📄 프로젝트 자료
-[티스토리로 이동](https://fridayfreebie.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Maze%20Runner%20%28Unity%29)
+## 📄 Project Resources
+
+**Project Video (YouTube)**
+<p align="center">
+  <a href="https://youtu.be/0CKmfjD5pek">
+    <img src="https://img.youtube.com/vi/0CKmfjD5pek/maxresdefault.jpg" width="500">
+  </a>
+</p>
+
+
+[Prim’s Algorithm Blog Post](https://fridayfreebie.tistory.com/57)
+- Implemented procedural maze generation using Prim’s Algorithm
+- Randomly expanded connected paths to generate a complete maze
+- Ensured all paths remained connected without isolated sections
+- Generated unique maze layouts every time the game starts
 
 ---
