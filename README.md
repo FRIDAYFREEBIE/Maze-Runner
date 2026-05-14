@@ -60,7 +60,7 @@
 </p>
 
 
-[Prim’s Algorithm Blog Post](https://fridayfreebie.tistory.com/57)
+[Prim’s Algorithm Post](https://dev.to/frydayfreebie/dynamic-maze-generation-using-prims-algorithm-1o7g)
 - Implemented procedural maze generation using Prim’s Algorithm
 - Randomly expanded connected paths to generate a complete maze
 - Ensured all paths remained connected without isolated sections
