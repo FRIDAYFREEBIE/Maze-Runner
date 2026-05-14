@@ -8,7 +8,7 @@
 - **Game Genre**: 3D Top-Down Escape Game
 - **Development Period**: 2025-09-04 ~ (Development Suspended)
 - **Team Size**: Solo Development
-- **Goal**: To complete the game and document the development process on my [Blog](https://fridayfreebie.tistory.com/category/%ED%86%A0%EC%9D%B4%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
+- **Goal**: To complete the game and document the development process on my blog
 
 ---
 
